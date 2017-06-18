@@ -89,7 +89,7 @@ module.exports = function (app, passport) {
     resave: true,
     saveUninitialized: true,
     store: new mongoStore({
-      url: config.db,
+      url: process.evn.MONGO_URI || config.db,
       collection : 'sessions'
     })
   }));
